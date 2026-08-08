@@ -88,10 +88,20 @@
     <audio id="mainMusic" src="sounds/main.mp3" preload="auto"></audio>
     <audio id="heckchu" src="sounds/heckchu.flac" preload="auto"></audio>
 
-    <div id="typedText">
-        <span id="commandSymbol">&gt;</span>
-        <span id="text"></span>
-    </div>
+<div id="typedText">
+    <span id="commandSymbol">&gt;</span>
+    <span id="text"></span>
+</div>
+
+<div class="image-container">
+    <img 
+      src="images/Ryo.png" 
+      alt="Ryo" 
+      id="image" 
+      onclick="const a = document.getElementById('heckchu'); a.currentTime = 0; a.play();" 
+      style="cursor: pointer;" 
+    />
+</div>
 
     <div class="image-container">
         <img src="images/Ryo.png" alt="Ryo" id="image" />
