@@ -24,7 +24,7 @@ function backspace(index = text.length - 1) {
 type();
 
 document.getElementById('image').addEventListener('click', function() {
-  const audio = new Audio('sounds/doskoi.flac');
+  const audio = new Audio('sounds/heckchu.flac');
   audio.play();
 });
 
