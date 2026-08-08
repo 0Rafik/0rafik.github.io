@@ -2,6 +2,7 @@ const text = "かみまみた!!";
 const speed = 100;
 const delay = 1000;
 const textElement = document.getElementById('text');
+textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
 
 function type(index = 0) {
   if (index < text.length) {
