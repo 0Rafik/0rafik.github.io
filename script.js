@@ -25,7 +25,8 @@ function backspace(index = text.length - 1) {
 type();
 
 document.getElementById('image').addEventListener('click', function() {
-  const audio = new Audio('sounds/heckchu.flac');
+  const audio = document.getElementById('heckchu');
+  audio.currentTime = 0;   
   audio.play();
 });
 
