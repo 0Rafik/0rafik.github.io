@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aki</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: "Courier New", Courier, monospace;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #typedText {
+      text-align: left;
+      font-size: 24px;
+      margin-bottom: 20px;
+      display: inline-block;
+      width: 300px; 
+    }
+
+    #commandSymbol {
+      margin-right: 5px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+      animation: pulse 1s infinite alternate; 
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2); 
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .image-container img {
+      cursor: pointer;
+      max-width: 100%;
+    }
+
+    .icons-container {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .icons-container a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .icons-container img {
+      width: 50px;
+      height: auto;
+      margin-bottom: 5px;
+      border-radius: 10px;
+      filter:
+         drop-shadow(-15px 0 15px #ff00ff)
+         drop-shadow(15px 0 15px #00ffff);
+    }
+    .welcome-text {
+      font-family: 'Arial Black', sans-serif; 
+      font-size: 37px; 
+      margin-top: 30px; 
+      color: fuchsia;
+    }
+
+
+    .parn-text {
+      font-family: font-family "Segoe UI Symbol", "Arial Unicode MS", sans-serif; 
+      font-size: 37px; 
+      margin-top: 30px; 
+      color: white;
+    }
+    .oo {
+      font-family: font-family "Segoe UI Symbol", "Arial Unicode MS", sans-serif; 
+      margin-top: 30px; 
+      color: white;
+      font-size: 1.8em;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="welcomeMusic" src="sounds/welcome.mp3" preload="auto"></audio>
+  
+  <audio id="mainMusic" src="sounds/main.mp3" preload="auto" ></audio>
+  
+  <audio id="Doskoi" src="sounds/doskoi.flac" preload="auto"></audio>
+  <div id="typedText">
+    <span id="commandSymbol">&gt;</span>
+    <span id="text"></span>
+  </div>
+  
+
+  <div class="image-container">
+    <img src="images/Shiroha.png" alt="Shiroha" id="image">
+  </div>
+  
+  <div class="welcome-text">あらららぎーさん!</div>
+  <div class="parn-text">L<span class="oo">∞</span>PER</div>
+
+
+  <div class="icons-container">
+    <a href="https://twitter.com/@oO0Eve0Oo" target="_blank">
+      <img src="images/twitter.png" alt="Twitter Icon">
+      Twitter
+
+
+    
+    <a href="https://myanimelist.net/profile/rfik" target="_blank">
+      <img src="images/mal.png" alt="MyAnimeList Icon">
+      MyAnimeList
+    </a>
+
+  </div>
+
+
+  <script src="script.js"></script>
+<p>いぶつって<p>
+</body>
+</html>
