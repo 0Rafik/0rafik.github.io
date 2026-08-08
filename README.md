@@ -1,1 +1,1 @@
-credit:[Aki](https://github.com/Aquki)
+credit: [Aki](https://github.com/Aquki)
