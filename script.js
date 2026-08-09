@@ -43,13 +43,20 @@ document.getElementById('image').addEventListener('click', function() {
     resetProgress();
   }
 });
+if (currentProgress === 100) {
+  const completeAudio = document.getElementById('yamadasuki');
+  if (completeAudio) {
+    completeAudio.currentTime = 0;
+    completeAudio.play();
+    }
+  }
 
 function resetProgress() {
   currentProgress = 0;
   if (bar){
     bar.style.width = '0%';
+    }
   }
-}
 
 window.onload = function() {
   const welcomeMusic = document.getElementById('welcomeMusic');
