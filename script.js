@@ -29,6 +29,16 @@ document.getElementById('image').addEventListener('click', function() {
   audio.currentTime = 0;   
   audio.play();
 });
+const audio = document.ge
+  if (currentProgress < 100) {
+    currentProgress += 20;
+    
+    const bar = document.getElementById('loading-bar');
+    if (bar) {
+      bar.style.width = currentProgress + '%';
+    }
+  }
+});
 
 window.onload = function() {
   const welcomeMusic = document.getElementById('welcomeMusic');
