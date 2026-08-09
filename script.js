@@ -1,34 +1,45 @@
 const text = "かみまみた!!";
 const speed = 100;
-const delay = 1000;
+const delay = 1500; //delay if want to change it 
 let textElement = document.getElementById('text');
 let bar = document.getElementById('loading-bar');
 let currentProgress = 0;
 let isYamadaBoosted = false;
 let lastPlayedTime = 0;
 let isFirstClick = true;
+let isTyping = false;
+let typingTimeout = null;
 
 textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
 
 function type(index = 0) {
   if (index < text.length) {
     textElement.textContent += text.charAt(index);
-    setTimeout(() => type(index + 1), speed);
+    typingTimeout = setTimeout(() => type(index + 1), speed);
   } else {
-    setTimeout(backspace, delay);
+    typingTimeout = setTimeout(backspace, delay);
   }
 }
 
 function backspace(index = text.length - 1) {
   if (index >= 0) {
     textElement.textContent = textElement.textContent.substring(0, textElement.textContent.length - 1);
-    setTimeout(() => backspace(index - 1), speed);
+    typingTimeout = setTimeout(() => backspace(index - 1), speed);
   } else {
-    setTimeout(type, delay);
+    isTyping = false;
+    typingTimeout = null;
   }
 }
 
-type();
+function startTypingCycle() {
+  if (isTyping) {
+    clearTimeout(typingTimeout);
+    isTyping = false;
+  }
+  textElement.textContent = '';
+  isTyping = true;
+  type(0);
+}
 
 document.getElementById('image').addEventListener('click', function() {
   const now = Date.now();
@@ -72,6 +83,7 @@ document.getElementById('image').addEventListener('click', function() {
         }
         ryosuki.currentTime = 0;
         ryosuki.play();
+        startTypingCycle(); 
       }
     }
   } else {
