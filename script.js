@@ -6,6 +6,7 @@ let bar = document.getElementById('loading-bar');
 let currentProgress = 0;
 let isYamadaBoosted = false;
 let lastPlayedTime = 0;
+let isFirstClick = true;
 
 textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
 
@@ -30,9 +31,20 @@ function backspace(index = text.length - 1) {
 type();
 
 document.getElementById('image').addEventListener('click', function() {
-const now = Date.now();
-if (now - lastPlayedTime < 200) return;
-lastPlayedTime = now;
+  const now = Date.now();
+  if (now - lastPlayedTime < 200) return;
+  lastPlayedTime = now;
+
+  if (isFirstClick) {
+    const welcome = document.getElementById('welcomeMusic');
+    if (welcome) {
+      welcome.currentTime = 0;
+      welcome.play().catch(err => console.log("Play blocked:", err));
+    }
+    isFirstClick = false;
+    return;
+  }
+
   const audio = document.getElementById('heckchu');
   if (audio) {
     audio.currentTime = 0;
@@ -82,18 +94,10 @@ document.getElementById('stopmusicbtn').addEventListener('click', function() {
   }
 });
 
-window.onload = function() {
-  const welcomeMusic = document.getElementById('welcomeMusic');
+document.getElementById('playMainMusicBtn').addEventListener('click', function() {
   const mainMusic = document.getElementById('mainMusic');
-
-  if (welcomeMusic) {
-    welcomeMusic.play().catch(err => console.log("Autoplay blocked by browser policy:", err));
-
-    welcomeMusic.onended = function() {
-      if (mainMusic) {
-        mainMusic.loop = true;
-        mainMusic.play();
-      }
-    };
+  if (mainMusic) {
+    mainMusic.loop = true;
+    mainMusic.play().catch(err => console.log("Play blocked:", err));
   }
-};
+});
