@@ -109,3 +109,11 @@ body {
 audio {
     display: none;
 }
+
+#child {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#child::-webkit-scrollbar {
+    display: none;
+}
