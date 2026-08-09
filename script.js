@@ -1,11 +1,12 @@
 const text = "かみまみた!!";
 const speed = 100;
 const delay = 1000;
-const textElement = document.getElementById('text');
-textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
-
+let textElement = document.getElementById('text');
+let bar = document.getElementById('loading-bar');
 let currentProgress = 0;
 
+
+textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
 function type(index = 0) {
   if (index < text.length) {
     textElement.textContent += text.charAt(index);
@@ -35,19 +36,18 @@ document.getElementById('image').addEventListener('click', function() {
 
   if (currentProgress < 100) {
     currentProgress += 20;
-    const bar = document.getElementById('loading-bar');
-    if (bar) {
-      bar.style.width = currentProgress + '%';
+    if (bar){
+      bar.style.width = `${currentProgress}%`;
     }
-  } else {
+  } 
+  else {
     resetProgress();
   }
 });
 
 function resetProgress() {
   currentProgress = 0;
-  const bar = document.getElementById('loading-bar');
-  if (bar) {
+  if (bar){
     bar.style.width = '0%';
   }
 }
