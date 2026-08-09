@@ -31,7 +31,7 @@ type();
 
 document.getElementById('image').addEventListener('click', function() {
 const now = Date.now();
-if (now - lastPlayedTime < 200) return; //maybe i want delay? 
+if (now - lastPlayedTime < 200) return;
 lastPlayedTime = now;
   const audio = document.getElementById('heckchu');
   if (audio) {
@@ -46,24 +46,20 @@ lastPlayedTime = now;
     }
 
     if (currentProgress === 100) {
-      const completeAudio = document.getElementById('yamadasuki');
-      if (completeAudio && audio) {
-        audio.addEventListener('ended', function() {
-          completeAudio.currentTime = 0;
-
-          if (!isYamadaBoosted) {
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            const source = audioCtx.createMediaElementSource(completeAudio);
-            const gainNode = audioCtx.createGain();
-
-            source.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-            
-            isYamadaBoosted = true;
-          }
-
-          completeAudio.play();
-        }, { once: true });
+      const ryosuki = document.getElementById('yamadasuki');
+      if (ryosuki && audio) {
+        audio.pause();
+        audio.currentTime = 0;
+        if (!isYamadaBoosted) {
+          const audioContx = new (window.AudioContext || window.webkitAudioContext)();
+          const source = audioContx.createMediaElementSource(ryosuki);
+          const gainNode = audioContx.createGain();
+          source.connect(gainNode);
+          gainNode.connect(audioContx.destination);
+          isYamadaBoosted = true;
+        }
+        ryosuki.currentTime = 0;
+        ryosuki.play();
       }
     }
   } else {
