@@ -5,8 +5,8 @@ let textElement = document.getElementById('text');
 let bar = document.getElementById('loading-bar');
 let currentProgress = 0;
 
-
 textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
+
 function type(index = 0) {
   if (index < text.length) {
     textElement.textContent += text.charAt(index);
@@ -36,34 +36,37 @@ document.getElementById('image').addEventListener('click', function() {
 
   if (currentProgress < 100) {
     currentProgress += 20;
-    if (bar){
+    if (bar) {
       bar.style.width = `${currentProgress}%`;
+    }
+
+    // Moved inside: Plays sound when hitting 100%
+    if (currentProgress === 100) {
+      const completeAudio = document.getElementById('yamadasuki');
+      if (completeAudio) {
+        completeAudio.currentTime = 0;
+        completeAudio.play();
+      }
     }
   } else {
     resetProgress();
   }
 });
-if (currentProgress === 100) {
-  const completeAudio = document.getElementById('yamadasuki');
-  if (completeAudio) {
-    completeAudio.currentTime = 0;
-    completeAudio.play();
-    }
-  }
 
 function resetProgress() {
   currentProgress = 0;
-  if (bar){
+  if (bar) {
     bar.style.width = '0%';
-    }
   }
-document.getElementById('stopmusicnbtn').addEventListener('click', function() {
-  const mainMusic = document.getElementById('mainmusic');
-  if (mainmusic) {
+}
+
+document.getElementById('stopMusicBtn').addEventListener('click', function() {
+  const mainMusic = document.getElementById('mainMusic');
+  if (mainMusic) {
     mainMusic.pause();
     mainMusic.currentTime = 0;
-     }
- });
+  }
+});
 
 window.onload = function() {
   const welcomeMusic = document.getElementById('welcomeMusic');
