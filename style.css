@@ -53,7 +53,7 @@ body {
     position: relative;
     animation: float 3s ease-in-out infinite alternate;
 }
-#stopMusicBtn {
+#stopmusicbtn {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 8px 16px;
