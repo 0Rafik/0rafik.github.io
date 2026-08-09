@@ -5,6 +5,7 @@ let textElement = document.getElementById('text');
 let bar = document.getElementById('loading-bar');
 let currentProgress = 0;
 let isYamadaBoosted = false;
+let lastPlayedTime = 0;
 
 textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
 
@@ -29,6 +30,9 @@ function backspace(index = text.length - 1) {
 type();
 
 document.getElementById('image').addEventListener('click', function() {
+const now = Date.now();
+if (now - lastPlayedTime < 3000) return;
+lastPlayedTime = now;
   const audio = document.getElementById('heckchu');
   if (audio) {
     audio.currentTime = 0;
