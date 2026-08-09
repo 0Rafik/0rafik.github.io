@@ -31,7 +31,7 @@ type();
 
 document.getElementById('image').addEventListener('click', function() {
 const now = Date.now();
-if (now - lastPlayedTime < 0) return;
+if (now - lastPlayedTime < 0) return; //maybe i want delay? 
 lastPlayedTime = now;
   const audio = document.getElementById('heckchu');
   if (audio) {
