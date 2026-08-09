@@ -57,6 +57,13 @@ function resetProgress() {
     bar.style.width = '0%';
     }
   }
+document.getElementById('stopmusicnbtn').addEventListener('click', function() {
+  const mainMusic = document.getElementById('mainmusic');
+  if (mainmusic) {
+    mainMusic.pause();
+    mainMusic.currentTime = 0;
+     }
+ });
 
 window.onload = function() {
   const welcomeMusic = document.getElementById('welcomeMusic');
