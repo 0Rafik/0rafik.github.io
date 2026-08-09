@@ -1,7 +1,7 @@
 const text = "かみまみた!!";
 const speed = 100; // text speed animation
 const delay = 1500; // how long the text stays
-const startDelay = 500; // delay of the text appearing after yamadasuki plays
+const startDelay = 1500; // delay of the text appearing after yamadasuki plays
 const spam = 200; //wait before next hekchu playing
 let textElement = document.getElementById('text');
 let bar = document.getElementById('loading-bar');
