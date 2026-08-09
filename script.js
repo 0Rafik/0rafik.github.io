@@ -29,7 +29,7 @@ type();
 document.getElementById('image').addEventListener('click', function() {
   const audio = document.getElementById('heckchu');
   if (audio) {
-    audio.currentTime = 0;   
+    audio.currentTime = 0;
     audio.play();
   }
 
@@ -39,10 +39,18 @@ document.getElementById('image').addEventListener('click', function() {
     if (bar) {
       bar.style.width = currentProgress + '%';
     }
-   } else {
+  } else {
     resetProgress();
   }
 });
+
+function resetProgress() {
+  currentProgress = 0;
+  const bar = document.getElementById('loading-bar');
+  if (bar) {
+    bar.style.width = '0%';
+  }
+}
 
 window.onload = function() {
   const welcomeMusic = document.getElementById('welcomeMusic');
@@ -53,7 +61,7 @@ window.onload = function() {
 
     welcomeMusic.onended = function() {
       if (mainMusic) {
-        mainMusic.loop = true; 
+        mainMusic.loop = true;
         mainMusic.play();
       }
     };
