@@ -18,19 +18,6 @@ body {
     line-height: 36px;
 }
 
-#parent {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-#child {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    padding-right: 17px; 
-    box-sizing: content-box; 
-}
 #loading-bar {
     position: fixed;
     top: 0;
@@ -80,6 +67,11 @@ body {
     }
     100% {
         transform: translateY(-16px);
+    }
+}
+@media (min-width: 1024px) {
+    body {
+        zoom: 0.7;
     }
 }
 
