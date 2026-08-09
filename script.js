@@ -31,7 +31,7 @@ type();
 
 document.getElementById('image').addEventListener('click', function() {
 const now = Date.now();
-if (now - lastPlayedTime < 3000) return;
+if (now - lastPlayedTime < 100) return;
 lastPlayedTime = now;
   const audio = document.getElementById('heckchu');
   if (audio) {
