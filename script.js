@@ -40,7 +40,6 @@ document.getElementById('image').addEventListener('click', function() {
       bar.style.width = `${currentProgress}%`;
     }
 
-    // Moved inside: Plays sound when hitting 100%
     if (currentProgress === 100) {
       const completeAudio = document.getElementById('yamadasuki');
       if (completeAudio) {
@@ -60,7 +59,7 @@ function resetProgress() {
   }
 }
 
-document.getElementById('stopMusicBtn').addEventListener('click', function() {
+document.getElementById('stopmusicbtn').addEventListener('click', function() {
   const mainMusic = document.getElementById('mainMusic');
   if (mainMusic) {
     mainMusic.pause();
