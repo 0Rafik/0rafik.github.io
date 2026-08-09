@@ -4,6 +4,7 @@ const delay = 1000;
 let textElement = document.getElementById('text');
 let bar = document.getElementById('loading-bar');
 let currentProgress = 0;
+let isYamadaBoosted = false;
 
 textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
 
@@ -42,9 +43,23 @@ document.getElementById('image').addEventListener('click', function() {
 
     if (currentProgress === 100) {
       const completeAudio = document.getElementById('yamadasuki');
-      if (completeAudio) {
-        completeAudio.currentTime = 0;
-        completeAudio.play();
+      if (completeAudio && audio) {
+        audio.addEventListener('ended', function() {
+          completeAudio.currentTime = 0;
+
+          if (!isYamadaBoosted) {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const source = audioCtx.createMediaElementSource(completeAudio);
+            const gainNode = audioCtx.createGain();
+
+            source.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            isYamadaBoosted = true;
+          }
+
+          completeAudio.play();
+        }, { once: true });
       }
     }
   } else {
