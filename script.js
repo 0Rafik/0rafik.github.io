@@ -4,6 +4,8 @@ const delay = 1000;
 const textElement = document.getElementById('text');
 textElement.style.fontFamily = '"Josefin Sans", "Tsukimi Rounded", sans-serif';
 
+let currentProgress = 0;
+
 function type(index = 0) {
   if (index < text.length) {
     textElement.textContent += text.charAt(index);
@@ -26,13 +28,13 @@ type();
 
 document.getElementById('image').addEventListener('click', function() {
   const audio = document.getElementById('heckchu');
-  audio.currentTime = 0;   
-  audio.play();
-});
-const audio = document.ge
+  if (audio) {
+    audio.currentTime = 0;   
+    audio.play();
+  }
+
   if (currentProgress < 100) {
     currentProgress += 20;
-    
     const bar = document.getElementById('loading-bar');
     if (bar) {
       bar.style.width = currentProgress + '%';
@@ -43,11 +45,15 @@ const audio = document.ge
 window.onload = function() {
   const welcomeMusic = document.getElementById('welcomeMusic');
   const mainMusic = document.getElementById('mainMusic');
-  
-  welcomeMusic.play();
-  
-  welcomeMusic.onended = function() {
-    mainMusic.loop = true; 
-    mainMusic.play();
-  };
+
+  if (welcomeMusic) {
+    welcomeMusic.play().catch(err => console.log("Autoplay blocked by browser policy:", err));
+
+    welcomeMusic.onended = function() {
+      if (mainMusic) {
+        mainMusic.loop = true; 
+        mainMusic.play();
+      }
+    };
+  }
 };
