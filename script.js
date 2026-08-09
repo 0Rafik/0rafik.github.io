@@ -39,8 +39,8 @@ document.getElementById('image').addEventListener('click', function() {
     if (bar) {
       bar.style.width = currentProgress + '%';
     }
-  } else{
-     resetprogress(); 
+   } else {
+    resetProgress();
   }
 });
 
