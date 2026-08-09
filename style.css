@@ -53,6 +53,14 @@ body {
     position: relative;
     animation: float 3s ease-in-out infinite alternate;
 }
+#stopMusicBtn {
+  padding: 8px 16px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 @keyframes float {
     0% {
