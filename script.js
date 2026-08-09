@@ -39,7 +39,7 @@ document.getElementById('image').addEventListener('click', function() {
     if (bar) {
       bar.style.width = currentProgress + '%';
     }
-  } else}
+  } else{
      resetprogress(); 
   }
 });
