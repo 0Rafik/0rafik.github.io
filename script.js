@@ -1,6 +1,8 @@
 const text = "かみまみた!!";
-const speed = 100;
-const delay = 1500; //delay if want to change it 
+const speed = 100; // text speed animation
+const delay = 1500; // how long the text stays
+const startDelay = 500; // delay of the text appearing after yamadasuki plays
+const spam = 200; //wait before next hekchu playing
 let textElement = document.getElementById('text');
 let bar = document.getElementById('loading-bar');
 let currentProgress = 0;
@@ -43,7 +45,7 @@ function startTypingCycle() {
 
 document.getElementById('image').addEventListener('click', function() {
   const now = Date.now();
-  if (now - lastPlayedTime < 200) return;
+  if (now - lastPlayedTime < spam) return;
   lastPlayedTime = now;
 
   if (isFirstClick) {
@@ -83,7 +85,7 @@ document.getElementById('image').addEventListener('click', function() {
         }
         ryosuki.currentTime = 0;
         ryosuki.play();
-        startTypingCycle(); 
+        setTimeout(startTypingCycle, startDelay);
       }
     }
   } else {
